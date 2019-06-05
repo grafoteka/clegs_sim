@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<package>
+  <name>clegs_gazebo</name>
+  <version>1.0.0</version>
+  <description>
+		The gazebo package manages the simulations in Gazebo. It includes the launch 
+		directory with the .launch file and the .world files that can be loaded in Gazebo.
+	
+		empty world :	This is the world by default. There is not any obstacle in the 
+				scenario. Is ideal to analyze how the robot moves in flat terrains.
+		stairs: This world includes one stair with X steps at the global point (4, 0, 0). 
+			Each step has the dimension of 100x30x17mm. It has been designed to develop 
+			algorithms for going up and down this kind of obstacles.
+		slope: 	This world incorporate 9 different slopes where the percentage of each ramp 
+			varies from 10 ◦ to 50 ◦ . This world is for testing the maximum slope that 
+			can achieve the robot, where the 45 ◦ slope represents the 100% slope.
+		uneven terrain: In this world we have develop a section of terrain the tries to 
+				represent the physical conditions after a disaster and that search 
+				and rescue robots must complete successfully.
+  </description>
+
+  <license>BSD</license>
+
+  <author email="raul.cebolla.arroyo@alumnos.upm.es">Raul Cebolla Arroyo</author>
+  <author email="jorge.deleon@upm.es"> Jorge De Leon </author>
+  <maintainer email="jorge.deleon@upm.es"> Jorge De Leon </maintainer>
+
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>roscpp</build_depend>
+  <build_depend>std_srvs</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>tf</build_depend>
+  <build_depend>gazebo_ros</build_depend>
+  <build_depend>hexapodo_control</build_depend>  
+  <build_depend>hexapodo_robot_control</build_depend>  
+  <build_depend>hexapodo_description</build_depend> 
+  <build_depend>xacro</build_depend>  
+
+  <run_depend>roscpp</run_depend>
+  <run_depend>std_srvs</run_depend>
+  <run_depend>std_msgs</run_depend>
+  <run_depend>tf</run_depend>
+  <run_depend>gazebo_ros</run_depend>
+  <run_depend>hexapodo_control</run_depend>  
+  <run_depend>hexapodo_robot_control</run_depend>  
+  <run_depend>hexapodo_description</run_depend> 
+  <run_depend>xacro</run_depend> 
+  <run_depend>hector_gazebo_plugins</run_depend> 
+  <run_depend>gazebo_plugins</run_depend> 
+
+  <export>
+	  <gazebo_ros plugin_path="${prefix}/lib" gazebo_media_path="${prefix}" />
+  </export>
+  
+</package>

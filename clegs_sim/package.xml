@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package>
+  <name>clegs_sim</name>
+  <version>1.0.0</version>
+  <description>Package for running the simulations on Gazebo</description>
+
+  <license>BSD</license>
+
+  <author email="jorge.deleon@upm.es">Jorge De Leon</author>
+  <maintainer email="jorge.deleon@upm.es">Jorge De Leon Rivas</maintainer>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>clegs_description</run_depend>
+
+</package>

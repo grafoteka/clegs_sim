@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>clegs_sim_control</name>
+  <version>1.0.0</version>
+  <description>
+		This gets the information from the patterns commands and translate into the commands
+		necessaries to move the simulation. There is one package equal in the hardware branch
+		but for the real robot. With this package, the developer only has to be focus on 
+		generate a correct gait pattern, then the software do all the necessaries 
+		modifications to translate it into the simulation model.
+  </description>	
+
+  <license>BSD</license>
+
+  <author email="raul.cebolla.arroyo@alumnos.upm.es">Raul Cebolla Arroyo</author>
+  <author email="jorge.deleon@upm.es"> Jorge De Leon </author>
+  <maintainer email="jorge.deleon@upm.es"> Jorge De Leon </maintainer>
+
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <!--build_depend>common_hex</build_depend-->
+  <build_depend>roscpp</build_depend>
+
+  <!--build_export_depend>common_hex</build_export_depend-->
+  <build_export_depend>roscpp</build_export_depend>
+
+  <!--exec_depend>common_hex</exec_depend-->
+  <exec_depend>roscpp</exec_depend>
+
+</package>

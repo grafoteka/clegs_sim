@@ -1,0 +1,60 @@
+<launch>
+
+<!-- Parametro que indica si se deben cargar los controladores de posicion en vez de los de velocidad
+FALSE: Velocidad
+TRUE:  Posicion -->
+<arg name="position_controller" default="false"/>
+
+<!-- Grupo a cargar si el controlador es de posicion -->
+<group if="$(arg position_controller)">
+
+    <!-- Load joint controller configurations from YAML file to parameter server -->
+    <rosparam file="$(find find clegs_sim_controllers)/config/quad.yaml" command="load"/>
+
+    <!-- load the controllers -->
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+      output="screen" ns="/quad" args="joint_state_controller
+                                       motor1_position_controller
+                                       motor2_position_controller
+                                       motor3_position_controller
+                                       motor4_position_controller"/>
+
+        <node name="controller_loader" pkg="controller_manager" type="controller_manager" respawn="false" output="screen" ns="/quad" args="load
+                                       motor1_velocity_controller
+                                       motor2_velocity_controller
+                                       motor3_velocity_controller
+                                       motor4_velocity_controller"/>  
+
+</group>
+
+<!-- Grupo a cargar si el controlador es de velocidad -->
+<group unless="$(arg position_controller)">
+
+    <!-- Load joint controller configurations from YAML file to parameter server -->
+    <rosparam file="$(find clegs_sim_controllers)/config/quad.yaml" command="load"/>
+
+    <!-- load the controllers -->
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+      output="screen" ns="/quad" args="joint_state_controller
+                                       motor1_velocity_controller
+                                       motor2_velocity_controller
+                                       motor3_velocity_controller
+                                       motor4_velocity_controller
+                                       motor5_velocity_controller
+                                       motor6_velocity_controller"/>
+
+    <node name="controller_loader" pkg="controller_manager" type="controller_manager" respawn="false" output="screen" ns="/quad" args="load
+                                       motor1_position_controller
+                                       motor2_position_controller
+                                       motor3_position_controller
+                                       motor4_position_controller
+                                       motor5_position_controller
+                                       motor6_position_controller"/>  
+</group>
+
+<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+      respawn="false" output="screen">
+  <remap from="/joint_states" to="/quad/joint_states" />
+</node>
+
+</launch>

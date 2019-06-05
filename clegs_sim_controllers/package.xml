@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<package>
+  <name>clegs_sim_controllers</name>
+  <version>1.0.0</version>
+  <description> All the controllers for Gazebo are defined in this package. The controllers are
+		called from the .launch file, but firstly, the controllers have to be parameterized
+		in the .yaml file.
+  </description>
+
+  <license>BSD</license>
+
+  <author email="raul.cebolla.arroyo@alumnos.upm.es">Raul Cebolla Arroyo</author>
+  <author email="jorge.deleon@upm.es"> Jorge De Leon </author>
+  <maintainer email="jorge.deleon@upm.es"> Jorge De Leon </maintainer>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <!--build_depend>ros_control</build_depend-->
+  <build_depend>ros_controlllers</build_depend>
+  <run_depend>robot_state_publisher</run_depend>
+
+  <!--run_depend>ros_controllers</run_depend-->
+  <run_depend>ros_controllers</run_depend>
+  <run_depend>robot_state_publisher</run_depend>
+  <!--run_depend>hexapodo_pad</run_depend--> 
+
+</package>
